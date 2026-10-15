@@ -1,0 +1,22 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+secrets/
+
+# Java and Gradle output
+.gradle/
+build/
+*.class
+*.log
+
+# Solidity build and deployment output
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# Editor and operating-system files
+.idea/
+*.iml
+.DS_Store
+
