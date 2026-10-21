@@ -39,4 +39,43 @@ public final class AuthModels {
             String email,
             Instant createdAt
     ) {}
+
+    public record LoginRequest(
+        @NotBlank
+        @Email
+        @Size(max = 254)
+        String email,
+
+        @NotBlank
+        @Size(max = 72)
+        String password
+    ) {
+        public LoginRequest {
+            if (email != null) {
+                email = email.strip().toLowerCase(Locale.ROOT);
+            }
+        }
+
+        @Override
+        public String toString() {
+            return "LoginRequest[credentials redacted]";
+        }
+    }
+
+    public record LoginResponse(
+        String accessToken,
+        String tokenType,
+        Instant expiresAt,
+        UserResponse user
+    ) {
+        @Override
+        public String toString() {
+            return "LoginResponse[token redacted]";
+        }
+    }
+
+    public record AuthenticatedUser(
+        UserResponse user,
+        String tokenHash
+    ) {}
 }
