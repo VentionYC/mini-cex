@@ -16,7 +16,7 @@ CREATE TABLE assets (
         code ~ '^[A-Z][A-Z0-9]{1,15}$'
     ),
     CONSTRAINT assets_decimals_range CHECK (
-        decimals BETWEEN 0 AND 18  
+        decimals BETWEEN 0 AND 18
     )
 );
 

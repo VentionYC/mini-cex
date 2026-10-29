@@ -197,4 +197,10 @@ public class LedgerService {
 
         deltas.merge(account.id(), delta, BigInteger::add);
     }
+
+    @Transactional(readOnly = true, timeout = 15)
+    public List<Account> readAccounts(UUID userId) {
+        Objects.requireNonNull(userId, "userId");
+        return repository.findUserAccounts(userId);
+    }
 }
