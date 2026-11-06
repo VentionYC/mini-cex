@@ -3,6 +3,7 @@
 .env.*
 !.env.example
 secrets/
+.env.chain.local
 
 # Java and Gradle output
 .gradle/
